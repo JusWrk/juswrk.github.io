@@ -1,32 +1,14 @@
-# Juswrk
+# Juswrk Services Starter
 
-Juswrk is the main landing page for Marc Harris's engineering, digital and automation projects.
+Initial layouts for:
+- Gardening & Grounds Maintenance
+- Electrical Services
+- CCTV & Smart Security
 
-## Live site
+## Upload
+Copy all files and folders into the root of the Juswrk GitHub Pages repository.
 
-https://juswrk.github.io/
-
-## Current live platform
-
-- [M-Hub](https://juswrk.github.io/m-hub/)
-
-## Repository structure
-
-```text
-juswrk.github.io/
-├── index.html
-├── README.md
-├── assets/
-│   └── images/
-├── css/
-│   └── style.css
-└── js/
-    └── app.js
-```
-
-## GitHub Pages
-
-Publish from:
-
-- Branch: `main`
-- Folder: `/(root)`
+## Edit before launch
+Replace `hello@juswrk.org` if a different enquiry email is required.
+Add real project images to `assets/img/`.
+Review electrical compliance wording before advertising specific regulated work.
