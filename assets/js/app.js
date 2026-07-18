@@ -1,1 +1,1 @@
-const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('.site-header nav');if(toggle&&nav){toggle.addEventListener('click',()=>nav.classList.toggle('open'));}
+const b=document.querySelector('.menu-toggle');const n=document.querySelector('.main-nav');if(b&&n){b.addEventListener('click',()=>n.classList.toggle('open'));}
