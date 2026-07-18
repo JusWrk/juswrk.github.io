@@ -1,18 +1,17 @@
-# Juswrk Fancy Home v2
+# Juswrk Root Refresh
 
-Upload the contents of this folder to the root of the Juswrk GitHub Pages repository.
+First deployable root-site refresh for GitHub Pages.
 
-Included:
-- Blue and white Juswrk homepage
-- Distinct colours for gardening, electrical and CCTV
-- Clear click-to-call telephone number: 07799 123 067
-- CV, Qualifications and M-Hub navigation links
-- Matching service pages
-- Mobile navigation
+## Includes
+- New Juswrk M & E Contractors visual direction
+- Dark technical styling
+- Colour-coded service avenues
+- Shopfitting & Retail (M&E)
+- SiteGuard and M-Hub placeholders
+- Careers / Join Us page
+- Core values section
+- Mobile responsive navigation
+- GitHub Pages-ready relative paths
 
-Current assumed links:
-- https://juswrk.github.io/cv/
-- https://juswrk.github.io/qualifications/
-- https://juswrk.github.io/m-hub/
-
-Change those URLs in index.html and the header section if your repository names differ.
+## Deploy
+Upload the CONTENTS of this folder to the root of the juswrk.github.io repository.
