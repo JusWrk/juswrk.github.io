@@ -1,25 +1,7 @@
-# Juswrk Root Complete Refresh
+# Juswrk v2.0
 
-This ZIP is a complete deployable static website package based on the approved Juswrk visual concept.
+GitHub Pages-ready static website.
 
-## Deploy to GitHub Pages
-Copy the CONTENTS of `juswrk-root-complete` into the root of the `juswrk.github.io` repository.
+Upload all files and folders to the root of the `juswrk.github.io` repository and publish from the `main` branch `/root`.
 
-Required root files:
-- index.html
-- assets/
-- pages/
-- README.md
-
-The package includes:
-- Homepage matching the approved concept direction
-- Real extracted/optimised visual assets from the approved mock-up
-- Juswrk M & E Contractors branding
-- Responsive navigation
-- Eight colour-coded service avenues
-- Shopfitting & Retail M&E
-- Core values and Careers / Join Us
-- About and Contact pages
-- Service landing pages
-- Commercial pathways: buy/install, rent/hire, survey, quote
-- Approved concept screenshot as a visual reference in assets/images/
+The map is currently an approximate visual based on the supplied Timeline screenshot and can be replaced after the full export is available.
