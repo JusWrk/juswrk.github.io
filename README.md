@@ -1,5 +1,1 @@
-# Juswrk v2 Punchy
-
-This ZIP is packaged with index.html at the archive root. Extract/upload the CONTENTS directly to the root of the juswrk.github.io repository.
-
-Includes real project photography, full-screen hero, photographic sector navigation, project mosaic and links to M-Hub, MH-Control and SiteGuard.
+Juswrk v2 — image-led rebuild using genuine images supplied in images for processing(1).zip. Upload the contents of this ZIP to the root of juswrk.github.io.
