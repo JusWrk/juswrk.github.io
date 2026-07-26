@@ -6,6 +6,7 @@ Homepage refresh:
 
 - Positions JusWrk as the umbrella for M-Hub, MH-Control, SiteGuard, Sentinel and Image Systems.
 - Adds direct routes to temporary hire, permanent systems and the restored engineering archive.
+- Places Image Systems directly in the main desktop and mobile navigation.
 - Features the five motorway reports, Osprey case study, SiteGuard origin and wider Image Systems archive.
 - Adds the current phone number and email address.
 - Adds a usable mobile navigation menu and accessibility improvements.
