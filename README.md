@@ -13,3 +13,17 @@ Homepage refresh:
 
 ## Wastewater build
 Added wastewater.html using curated genuine images from the supplied wastewater archive: MCC upgrades, pump repair, process repairs, telemetry commissioning, electrical works, NRV replacements, site lighting and tank cleaning.
+
+## Interactive coverage update
+
+The `/coverage/` page now uses the project metadata recovered from
+`Handovers.zip`:
+
+- 418 project-only records indexed
+- 139 unique rollout locations mapped
+- 141 MU rollout plan files represented
+- 99 daily project reports and 16 handover/sign-off records counted
+- Clickable regional map, location search and archive evidence summaries
+
+Financial, payroll, banking, invoice, personnel and unrelated records are
+ignored. No source document from the ZIP is included in the public package.
