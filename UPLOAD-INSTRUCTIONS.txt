@@ -1,0 +1,17 @@
+JUSWRK /SERVICES CSS REPAIR
+
+1. Open the juswrk.github.io repository.
+2. Upload BOTH items below to the repository root:
+   - the "services" folder
+   - the ".nojekyll" file
+3. Allow the existing /services files to be replaced.
+4. Do not upload this instruction file.
+
+The root-level .nojekyll file is essential. It tells GitHub Pages to
+publish the /services/_next stylesheet folder instead of hiding it.
+
+This update changes only /services and the GitHub Pages publishing marker.
+The homepage, /coverage, and other sections remain untouched.
+
+Live address after GitHub Pages updates:
+https://juswrk.github.io/services/
