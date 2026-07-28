@@ -393,6 +393,67 @@
       color: var(--muted);
       text-align: center;
     }
+    .tradespeak-toggle {
+      min-height: 48px;
+      margin-top: .85rem;
+      padding: .65rem .9rem;
+      border: 1px solid var(--blue);
+      border-radius: 999px;
+      background: rgba(57,125,242,.12);
+      color: #fff;
+      font: inherit;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .035em;
+      cursor: pointer;
+    }
+    .tradespeak-toggle[aria-expanded="true"] {
+      background: var(--blue);
+    }
+    .tradespeak-panel {
+      margin-top: .85rem;
+      padding: 1rem;
+      border: 1px solid rgba(57,125,242,.55);
+      border-radius: 14px;
+      background: rgba(57,125,242,.07);
+    }
+    .tradespeak-panel[hidden] { display: none; }
+    .tradespeak-panel h4 {
+      margin: 0;
+      color: #fff;
+      font-family: var(--display);
+      font-size: 1.15rem;
+      letter-spacing: -.025em;
+      text-transform: uppercase;
+    }
+    .tradespeak-panel > p {
+      margin: .35rem 0 .8rem;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+    .tradespeak-fields {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: .65rem;
+    }
+    .tradespeak-field {
+      padding: .75rem;
+      display: grid;
+      gap: .45rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(5,10,17,.72);
+    }
+    .tradespeak-field label {
+      color: #fff;
+      font-size: .74rem;
+      font-weight: 850;
+    }
+    .tradespeak-field small {
+      color: var(--blue);
+      font-size: .68rem;
+      font-weight: 850;
+    }
     .check-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -451,6 +512,76 @@
     }
     .send-button:hover { filter: brightness(1.08); }
     .form-status {
+      min-height: 1.4em;
+      margin: 0;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+    .message-preview {
+      grid-column: 1 / -1;
+      padding: clamp(1.25rem, 4vw, 2.4rem);
+      border: 2px solid var(--yellow);
+      border-radius: 22px;
+      background: #080d15;
+      scroll-margin-top: 1rem;
+    }
+    .message-preview[hidden] { display: none; }
+    .message-preview h3 {
+      margin: 0;
+      color: #fff;
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      letter-spacing: -.065em;
+      line-height: .9;
+      text-transform: uppercase;
+    }
+    .message-preview > p {
+      margin: .8rem 0 1.4rem;
+      color: var(--muted);
+    }
+    .review-grid {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: .85rem;
+    }
+    .review-field {
+      display: grid;
+      gap: .45rem;
+    }
+    .review-field.full { grid-column: 1 / -1; }
+    .review-field label {
+      color: #fff;
+      font-size: .76rem;
+      font-weight: 900;
+    }
+    .review-field textarea {
+      min-height: 330px;
+      font-family: "Cascadia Mono", Consolas, monospace;
+      font-size: .82rem;
+    }
+    .review-field input[readonly] {
+      background: #dfe4ea;
+      color: #4a515a;
+    }
+    .review-actions {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+    }
+    .edit-button {
+      min-height: 54px;
+      padding: .8rem 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: #fff;
+      font: inherit;
+      font-size: .82rem;
+      font-weight: 850;
+      cursor: pointer;
+    }
+    .review-status {
       min-height: 1.4em;
       margin: 0;
       color: var(--muted);
@@ -598,10 +729,15 @@
       .job-brief { width: calc(100% - 1rem); }
       .contact-fields,
       .question-grid,
-      .check-grid { grid-template-columns: 1fr; }
+      .check-grid,
+      .tradespeak-fields,
+      .review-grid { grid-template-columns: 1fr; }
+      .review-field.full { grid-column: auto; }
       .load-clues { grid-column: auto; }
       .form-actions { align-items: stretch; flex-direction: column; }
+      .review-actions { align-items: stretch; flex-direction: column; }
       .send-button { width: 100%; }
+      .edit-button { width: 100%; }
       .services,
       .final-cta { width: calc(100% - 1rem); }
       footer {
@@ -670,7 +806,7 @@
         <p class="eyebrow">Seven quick questions</p>
         <h2 id="job-brief-heading">Help us load the van</h2>
         <p class="brief-summary">A useful brief means the right tools, materials and access equipment arrive with us the first time.</p>
-        <p class="brief-note">For now, the send button opens your email app with every answer already written out. Live app notifications are the next connection.</p>
+        <p class="brief-note">Complete the checklist, review the full message on this page, then choose when to open the addressed email.</p>
       </div>
 
       <form class="job-form" id="job-form" data-endpoint="">
@@ -758,6 +894,16 @@
             <div class="check-grid" id="task-checklist" aria-live="polite">
               <p class="checklist-empty">Choose a service in question 1.</p>
             </div>
+            <button class="tradespeak-toggle" id="tradespeak-toggle" type="button" aria-expanded="false" aria-controls="tradespeak-panel">
+              + Use Tradespeak
+            </button>
+            <div class="tradespeak-panel" id="tradespeak-panel" hidden>
+              <h4>Tradespeak detail</h4>
+              <p>Select the simple task above first. Only the matching technical questions will appear here.</p>
+              <div class="tradespeak-fields" id="tradespeak-fields" aria-live="polite">
+                <p class="checklist-empty">Tick a task above to add precise detail.</p>
+              </div>
+            </div>
           </fieldset>
         </div>
 
@@ -768,10 +914,34 @@
         </div>
 
         <div class="form-actions">
-          <button class="send-button" type="submit">Send job brief</button>
+          <button class="send-button" type="submit">Review job brief</button>
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </div>
       </form>
+
+      <section class="message-preview" id="message-preview" aria-labelledby="message-preview-heading" hidden>
+        <h3 id="message-preview-heading">Review your message</h3>
+        <p>Check or edit the subject and message below. Nothing is sent until you press the yellow button.</p>
+        <div class="review-grid">
+          <div class="review-field">
+            <label for="preview-to">To</label>
+            <input id="preview-to" value="4siteonline@gmail.com" readonly>
+          </div>
+          <div class="review-field">
+            <label for="preview-subject">Subject</label>
+            <input id="preview-subject">
+          </div>
+          <div class="review-field full">
+            <label for="preview-body">Message</label>
+            <textarea id="preview-body" rows="16"></textarea>
+          </div>
+        </div>
+        <div class="review-actions">
+          <button class="send-button" id="send-reviewed-email" type="button">Send to 4siteonline@gmail.com</button>
+          <button class="edit-button" id="edit-job-brief" type="button">Edit checklist</button>
+          <p class="review-status" id="review-status" role="status" aria-live="polite"></p>
+        </div>
+      </section>
     </section>
 
     <section class="services" aria-label="JusWrk service details">
@@ -834,9 +1004,20 @@
       var serviceLinks = document.querySelectorAll("[data-service]");
       var taskChecklist = document.getElementById("task-checklist");
       var checklistHint = document.getElementById("checklist-hint");
+      var tradespeakToggle = document.getElementById("tradespeak-toggle");
+      var tradespeakPanel = document.getElementById("tradespeak-panel");
+      var tradespeakFields = document.getElementById("tradespeak-fields");
+      var messagePreview = document.getElementById("message-preview");
+      var previewSubject = document.getElementById("preview-subject");
+      var previewBody = document.getElementById("preview-body");
+      var sendReviewedEmail = document.getElementById("send-reviewed-email");
+      var editJobBrief = document.getElementById("edit-job-brief");
+      var reviewStatus = document.getElementById("review-status");
+      var tradespeakSelections = {};
       var taskOptions = {
         "Electrical": [
           "Fitting swap",
+          "Extra electrical socket",
           "New circuit",
           "Fault find",
           "Security light",
@@ -847,7 +1028,8 @@
           "Electrical test kit"
         ],
         "CCTV / security": [
-          "New camera installation",
+          "Extra CCTV camera",
+          "New CCTV system",
           "Camera fault",
           "Recorder / NVR issue",
           "Remote viewing / app",
@@ -891,9 +1073,187 @@
           "Not sure — advise me"
         ]
       };
+      var tradespeakOptions = {
+        "Fitting swap": {
+          label: "Fitting being changed",
+          choices: ["Socket", "Light switch", "Light fitting", "Fused spur", "Other / not sure"]
+        },
+        "Extra electrical socket": {
+          label: "Wall or mounting type",
+          choices: ["Solid wall", "Cavity box", "External", "Surface-mounted box", "Not sure"]
+        },
+        "New circuit": {
+          label: "Circuit purpose",
+          choices: ["Sockets", "Lighting", "Cooker", "Shower", "Outbuilding", "EV charger", "Other / not sure"]
+        },
+        "Fault find": {
+          label: "Main symptom",
+          choices: ["Breaker tripping", "No power", "Intermittent fault", "Heat / burning smell", "Damaged fitting", "Not sure"]
+        },
+        "Security light": {
+          label: "Supply or control",
+          choices: ["Existing wired supply", "New cable needed", "PIR sensor", "Dusk-to-dawn", "Not sure"]
+        },
+        "EV charger": {
+          label: "Charger work",
+          choices: ["New single-phase installation", "New three-phase installation", "Replacement charger", "Fault / service", "Not sure"]
+        },
+        "Fuseboard issue": {
+          label: "Fuseboard symptom",
+          choices: ["Breaker tripping", "RCD / RCBO tripping", "No power", "Damage / heat", "Upgrade enquiry", "Not sure"]
+        },
+        "Extra CCTV camera": {
+          label: "Camera system type",
+          choices: ["HD-over-Coax", "Wireless", "IP / PoE", "Analogue", "Not sure"]
+        },
+        "New CCTV system": {
+          label: "Preferred system",
+          choices: ["HD-over-Coax", "Wireless", "IP / PoE", "Hybrid", "Not sure"]
+        },
+        "Camera fault": {
+          label: "Fault symptom",
+          choices: ["No picture", "Intermittent picture", "Poor image", "Night vision issue", "Water damage", "Not sure"]
+        },
+        "Recorder / NVR issue": {
+          label: "Recorder type",
+          choices: ["DVR", "NVR", "Hybrid recorder", "Not sure"]
+        },
+        "Remote viewing / app": {
+          label: "Viewing device",
+          choices: ["Android", "iPhone / iPad", "PC / Mac", "Multiple devices", "Not sure"]
+        },
+        "Network / communications": {
+          label: "Connection type",
+          choices: ["Ethernet / PoE", "Fibre", "Wi-Fi", "4G", "5G", "Not sure"]
+        },
+        "Mobile CCTV / tower": {
+          label: "Power available",
+          choices: ["Mains", "Solar", "Battery", "Hybrid", "Not sure"]
+        },
+        "Analytics / Jetson": {
+          label: "Analytics required",
+          choices: ["People", "Vehicle", "ANPR", "Behaviour", "Wildlife", "Custom", "Not sure"]
+        },
+        "Lawn cut / edging": {
+          label: "Approximate lawn size",
+          choices: ["Small", "Medium", "Large", "Commercial area", "Not sure"]
+        },
+        "Hedge trimming": {
+          label: "Approximate hedge height",
+          choices: ["Below 2 metres", "2–3 metres", "Above 3 metres", "Not sure"]
+        },
+        "Tree / shrub pruning": {
+          label: "Approximate working height",
+          choices: ["Ground level", "Steps", "Ladder height", "Specialist access", "Not sure"]
+        },
+        "Garden clearance": {
+          label: "Estimated waste volume",
+          choices: ["A few bags", "Small van load", "Full van load", "Multiple loads", "Not sure"]
+        },
+        "Weed control": {
+          label: "Main treatment area",
+          choices: ["Hard surfaces", "Beds / borders", "Lawn", "Mixed areas", "Not sure"]
+        },
+        "Waste removal": {
+          label: "Estimated waste volume",
+          choices: ["A few bags", "Small van load", "Full van load", "Multiple loads", "Not sure"]
+        },
+        "Gondola / shelving": {
+          label: "Approximate number of bays",
+          choices: ["1–5 bays", "6–20 bays", "21+ bays", "Not sure"]
+        },
+        "Lighting / power": {
+          label: "Electrical requirement",
+          choices: ["Existing supply", "New supply", "Lighting only", "Sockets / equipment", "Not sure"]
+        },
+        "Digital pricing screens": {
+          label: "Screen task",
+          choices: ["New installation", "Move existing", "Power fault", "Network fault", "Not sure"]
+        },
+        "De-merch / re-merch": {
+          label: "Approximate number of bays",
+          choices: ["1–5 bays", "6–20 bays", "21+ bays", "Not sure"]
+        },
+        "Signage / display": {
+          label: "Sign type",
+          choices: ["Internal", "External", "Illuminated", "Non-illuminated", "Not sure"]
+        }
+      };
+
+      function rememberTradespeakSelections() {
+        tradespeakFields.querySelectorAll("select[data-task]").forEach(function (select) {
+          tradespeakSelections[select.getAttribute("data-task")] = select.value;
+        });
+      }
+
+      function renderTradespeakFields() {
+        rememberTradespeakSelections();
+        var selectedTasks = Array.from(
+          taskChecklist.querySelectorAll('input[name="loadClues"]:checked')
+        ).map(function (input) {
+          return input.value;
+        });
+        var detailedTasks = selectedTasks.filter(function (task) {
+          return Boolean(tradespeakOptions[task]);
+        });
+
+        tradespeakFields.replaceChildren();
+
+        if (!detailedTasks.length) {
+          var empty = document.createElement("p");
+          empty.className = "checklist-empty";
+          empty.textContent = selectedTasks.length
+            ? "Those selections need no extra technical question."
+            : "Tick a task above to add precise detail.";
+          tradespeakFields.appendChild(empty);
+          return;
+        }
+
+        detailedTasks.forEach(function (task, index) {
+          var detail = tradespeakOptions[task];
+          var field = document.createElement("div");
+          var taskName = document.createElement("small");
+          var label = document.createElement("label");
+          var select = document.createElement("select");
+          var blank = document.createElement("option");
+          var selectId = "tradespeak-detail-" + index;
+
+          field.className = "tradespeak-field";
+          taskName.textContent = task;
+          label.setAttribute("for", selectId);
+          label.textContent = detail.label;
+          select.id = selectId;
+          select.name = "tradeDetails";
+          select.setAttribute("data-task", task);
+          blank.value = "";
+          blank.textContent = "Choose one (optional)";
+          select.appendChild(blank);
+
+          detail.choices.forEach(function (choice) {
+            var option = document.createElement("option");
+            option.value = task + " — " + detail.label + ": " + choice;
+            option.textContent = choice;
+            select.appendChild(option);
+          });
+
+          if (tradespeakSelections[task]) {
+            select.value = tradespeakSelections[task];
+          }
+          select.addEventListener("change", function () {
+            tradespeakSelections[task] = select.value;
+          });
+
+          field.appendChild(taskName);
+          field.appendChild(label);
+          field.appendChild(select);
+          tradespeakFields.appendChild(field);
+        });
+      }
 
       function renderTaskChecklist(service) {
         var options = taskOptions[service] || [];
+        tradespeakSelections = {};
+        tradespeakFields.replaceChildren();
         taskChecklist.replaceChildren();
 
         if (!options.length) {
@@ -902,6 +1262,7 @@
           empty.textContent = "Choose a service in question 1.";
           taskChecklist.appendChild(empty);
           checklistHint.textContent = "Choose a service and this checklist will change to match it.";
+          renderTradespeakFields();
           return;
         }
 
@@ -917,6 +1278,7 @@
           label.appendChild(document.createTextNode(item));
           taskChecklist.appendChild(label);
         });
+        renderTradespeakFields();
       }
 
       serviceLinks.forEach(function (link) {
@@ -930,6 +1292,22 @@
         renderTaskChecklist(serviceSelect.value);
       });
 
+      taskChecklist.addEventListener("change", function (event) {
+        if (event.target && event.target.name === "loadClues") {
+          renderTradespeakFields();
+        }
+      });
+
+      tradespeakToggle.addEventListener("click", function () {
+        var isOpening = tradespeakPanel.hidden;
+        tradespeakPanel.hidden = !isOpening;
+        tradespeakToggle.setAttribute("aria-expanded", String(isOpening));
+        tradespeakToggle.textContent = isOpening ? "− Hide Tradespeak" : "+ Use Tradespeak";
+        if (isOpening) {
+          renderTradespeakFields();
+        }
+      });
+
       renderTaskChecklist(serviceSelect.value);
 
       form.addEventListener("submit", function (event) {
@@ -938,6 +1316,9 @@
 
         var data = new FormData(form);
         var loadClues = data.getAll("loadClues");
+        var tradeDetails = data.getAll("tradeDetails").filter(function (value) {
+          return Boolean(value);
+        });
         var subject = "New JusWrk " + data.get("service") + " job — " + data.get("location");
         var lines = [
           "NEW JUSWRK JOB BRIEF",
@@ -952,6 +1333,7 @@
           "5. Access: " + data.get("access"),
           "6. Work at height: " + data.get("height"),
           "7. Task / kit clues: " + (loadClues.length ? loadClues.join(", ") : "Customer is not sure"),
+          "Tradespeak: " + (tradeDetails.length ? tradeDetails.join(" | ") : "Not used"),
           "",
           "CUSTOMER REQUEST",
           data.get("request"),
@@ -959,12 +1341,29 @@
           "Submitted from https://juswrk.github.io/services/"
         ];
 
-        status.textContent = "Opening your email app with the completed job brief…";
+        previewSubject.value = subject;
+        previewBody.value = lines.join("\n");
+        status.textContent = "";
+        reviewStatus.textContent = "";
+        form.hidden = true;
+        messagePreview.hidden = false;
+        messagePreview.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      sendReviewedEmail.addEventListener("click", function () {
+        reviewStatus.textContent = "Opening your email app with the reviewed message…";
         window.location.href =
           "mailto:4siteonline@gmail.com?subject=" +
-          encodeURIComponent(subject) +
+          encodeURIComponent(previewSubject.value) +
           "&body=" +
-          encodeURIComponent(lines.join("\n"));
+          encodeURIComponent(previewBody.value);
+      });
+
+      editJobBrief.addEventListener("click", function () {
+        messagePreview.hidden = true;
+        form.hidden = false;
+        reviewStatus.textContent = "";
+        form.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     }());
   </script>
