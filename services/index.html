@@ -269,6 +269,194 @@
       color: #071019;
     }
 
+    .job-brief {
+      width: min(1200px, calc(100% - 2rem));
+      margin: clamp(5rem, 9vw, 9rem) auto 0;
+      padding: clamp(1.4rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: minmax(260px, .65fr) minmax(0, 1.35fr);
+      gap: clamp(2rem, 6vw, 5rem);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 12% 15%, rgba(255,210,63,.14), transparent 22rem),
+        var(--panel);
+      scroll-margin-top: 1rem;
+    }
+    .brief-intro {
+      align-self: start;
+      position: sticky;
+      top: 1rem;
+    }
+    .brief-intro h2 {
+      margin: 0;
+      color: #fff;
+      font-family: var(--display);
+      font-size: clamp(3.2rem, 7vw, 6.4rem);
+      font-weight: 900;
+      letter-spacing: -.075em;
+      line-height: .84;
+      text-transform: uppercase;
+    }
+    .brief-summary {
+      max-width: 390px;
+      margin: 1.5rem 0 0;
+      color: var(--muted);
+    }
+    .brief-note {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-left: 4px solid var(--yellow);
+      background: rgba(255,255,255,.045);
+      color: #dfe5ed;
+      font-size: .84rem;
+    }
+    .job-form {
+      display: grid;
+      gap: .85rem;
+    }
+    .contact-fields,
+    .question-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .85rem;
+    }
+    .field,
+    .question {
+      min-width: 0;
+      margin: 0;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(5,10,17,.68);
+    }
+    .field > label,
+    .question > label,
+    .question legend {
+      display: block;
+      width: 100%;
+      margin: 0 0 .55rem;
+      padding: 0;
+      color: #fff;
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .035em;
+    }
+    .question-number {
+      display: inline-grid;
+      width: 1.65rem;
+      height: 1.65rem;
+      margin-right: .35rem;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: #071019;
+      font-size: .72rem;
+    }
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 10px;
+      background: #fff;
+      color: #071019;
+      font: inherit;
+      font-size: .92rem;
+    }
+    input,
+    select { min-height: 48px; padding: .65rem .75rem; }
+    textarea {
+      min-height: 132px;
+      padding: .75rem;
+      line-height: 1.45;
+      resize: vertical;
+    }
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 4px solid rgba(255,210,63,.34);
+      border-color: var(--yellow);
+    }
+    .load-clues { grid-column: 1 / -1; }
+    .checklist-hint {
+      margin: -.15rem 0 .75rem;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+    .checklist-empty {
+      grid-column: 1 / -1;
+      margin: 0;
+      padding: 1rem;
+      border: 1px dashed rgba(255,255,255,.2);
+      border-radius: 10px;
+      color: var(--muted);
+      text-align: center;
+    }
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .55rem;
+    }
+    .check-option {
+      min-height: 48px;
+      padding: .6rem .7rem;
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,.045);
+      color: #e9edf3;
+      font-size: .78rem;
+      font-weight: 750;
+      cursor: pointer;
+    }
+    .check-option:has(input:checked) {
+      border-color: var(--yellow);
+      background: rgba(255,210,63,.12);
+    }
+    .check-option input {
+      flex: 0 0 auto;
+      width: 18px;
+      height: 18px;
+      min-height: 0;
+      margin: 0;
+      accent-color: var(--yellow);
+    }
+    .request-field { padding: 1rem; }
+    .request-field small {
+      display: block;
+      margin-top: .5rem;
+      color: var(--muted);
+    }
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .send-button {
+      min-height: 54px;
+      padding: .8rem 1.25rem;
+      border: 0;
+      border-radius: 999px;
+      background: var(--yellow);
+      color: #071019;
+      font-family: var(--display);
+      font-size: .9rem;
+      font-weight: 900;
+      letter-spacing: .035em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .send-button:hover { filter: brightness(1.08); }
+    .form-status {
+      min-height: 1.4em;
+      margin: 0;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
     .services {
       width: min(1200px, calc(100% - 2rem));
       margin: 0 auto;
@@ -382,6 +570,8 @@
       }
       .hero-copy { display: grid; justify-items: center; }
       .simon { width: min(590px, 88vw); min-width: 0; }
+      .job-brief { grid-template-columns: 1fr; }
+      .brief-intro { position: static; }
       .services { grid-template-columns: 1fr; }
     }
 
@@ -405,6 +595,13 @@
       .quick-contact { display: grid; }
       .quick-actions { display: grid; grid-template-columns: 1fr 1fr; }
       .button { text-align: center; }
+      .job-brief { width: calc(100% - 1rem); }
+      .contact-fields,
+      .question-grid,
+      .check-grid { grid-template-columns: 1fr; }
+      .load-clues { grid-column: auto; }
+      .form-actions { align-items: stretch; flex-direction: column; }
+      .send-button { width: 100%; }
       .services,
       .final-cta { width: calc(100% - 1rem); }
       footer {
@@ -464,8 +661,117 @@
       <p>Not sure which one? <strong>Call Marc and describe the job.</strong></p>
       <div class="quick-actions">
         <a class="button primary" href="tel:+447799123067">Call Marc</a>
-        <a class="button" href="mailto:4siteonline@gmail.com?subject=JusWrk%20service%20enquiry">Send the job</a>
+        <a class="button" href="#job-brief">Send the job</a>
       </div>
+    </section>
+
+    <section class="job-brief" id="job-brief" aria-labelledby="job-brief-heading">
+      <div class="brief-intro">
+        <p class="eyebrow">Seven quick questions</p>
+        <h2 id="job-brief-heading">Help us load the van</h2>
+        <p class="brief-summary">A useful brief means the right tools, materials and access equipment arrive with us the first time.</p>
+        <p class="brief-note">For now, the send button opens your email app with every answer already written out. Live app notifications are the next connection.</p>
+      </div>
+
+      <form class="job-form" id="job-form" data-endpoint="">
+        <div class="contact-fields">
+          <div class="field">
+            <label for="customer-name">Your name</label>
+            <input id="customer-name" name="customerName" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="customer-contact">Best phone number or email</label>
+            <input id="customer-contact" name="customerContact" autocomplete="tel" required>
+          </div>
+        </div>
+
+        <div class="question-grid">
+          <div class="question">
+            <label for="service"><span class="question-number">1</span>Which service?</label>
+            <select id="service" name="service" required>
+              <option value="">Choose one</option>
+              <option>Electrical</option>
+              <option>CCTV / security</option>
+              <option>Gardening</option>
+              <option>Shopfitting</option>
+              <option>Not sure / mixed job</option>
+            </select>
+          </div>
+
+          <div class="question">
+            <label for="location"><span class="question-number">2</span>Postcode or site location?</label>
+            <input id="location" name="location" autocomplete="postal-code" placeholder="For example CH66 3PE" required>
+          </div>
+
+          <div class="question">
+            <label for="site-type"><span class="question-number">3</span>What sort of site?</label>
+            <select id="site-type" name="siteType" required>
+              <option value="">Choose one</option>
+              <option>Home / garden</option>
+              <option>Shop / retail</option>
+              <option>Office / commercial</option>
+              <option>Construction site</option>
+              <option>Industrial / utilities</option>
+            </select>
+          </div>
+
+          <div class="question">
+            <label for="timing"><span class="question-number">4</span>When is it needed?</label>
+            <select id="timing" name="timing" required>
+              <option value="">Choose one</option>
+              <option>Urgent / as soon as possible</option>
+              <option>This week</option>
+              <option>Within two weeks</option>
+              <option>Flexible / quote first</option>
+              <option>Fixed project date</option>
+            </select>
+          </div>
+
+          <div class="question">
+            <label for="access"><span class="question-number">5</span>What is access like?</label>
+            <select id="access" name="access" required>
+              <option value="">Choose one</option>
+              <option>Driveway or easy van access</option>
+              <option>Street parking nearby</option>
+              <option>Restricted parking / loading bay</option>
+              <option>Stairs or long carry</option>
+              <option>Site induction / permit required</option>
+            </select>
+          </div>
+
+          <div class="question">
+            <label for="height"><span class="question-number">6</span>Is work at height involved?</label>
+            <select id="height" name="height" required>
+              <option value="">Choose one</option>
+              <option>No — ground level</option>
+              <option>Small steps</option>
+              <option>Ladder work</option>
+              <option>Tower / podium</option>
+              <option>MEWP / specialist access</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+
+          <fieldset class="question load-clues">
+            <legend><span class="question-number">7</span>Which job and kit clues apply?</legend>
+            <p class="checklist-hint" id="checklist-hint">Choose a service and this checklist will change to match it.</p>
+            <div class="check-grid" id="task-checklist" aria-live="polite">
+              <p class="checklist-empty">Choose a service in question 1.</p>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="field request-field">
+          <label for="request">Describe the job in four lines</label>
+          <textarea id="request" name="request" rows="4" maxlength="700" placeholder="What needs doing? What is already there? Anything damaged or unusual? Add measurements or quantities if known." required></textarea>
+          <small>Photos can be attached after your email app opens.</small>
+        </div>
+
+        <div class="form-actions">
+          <button class="send-button" type="submit">Send job brief</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
     </section>
 
     <section class="services" aria-label="JusWrk service details">
@@ -475,7 +781,7 @@
           <p>Installation, fault-finding support, lighting, temporary supplies, inspection support and practical project assistance.</p>
           <ul><li>Power & lighting</li><li>Testing support</li><li>Temporary electrics</li></ul>
         </div>
-        <a class="button" href="mailto:4siteonline@gmail.com?subject=Electrical%20enquiry">Send an electrical job</a>
+        <a class="button service-enquiry" href="#job-brief" data-service="Electrical">Send an electrical job</a>
       </article>
 
       <article class="service-card card-cctv" id="cctv">
@@ -484,7 +790,7 @@
           <p>Permanent and temporary CCTV, remote monitoring, mobile systems, communications and custom video-analysis concepts.</p>
           <ul><li>Fixed systems</li><li>Mobile CCTV</li><li>Remote monitoring</li></ul>
         </div>
-        <a class="button" href="mailto:4siteonline@gmail.com?subject=CCTV%20enquiry">Send a CCTV job</a>
+        <a class="button service-enquiry" href="#job-brief" data-service="CCTV / security">Send a CCTV job</a>
       </article>
 
       <article class="service-card card-gardening" id="gardening">
@@ -493,7 +799,7 @@
           <p>Domestic and commercial garden maintenance, lawns, hedges, tidy-ups, seasonal clearance and regular visits.</p>
           <ul><li>Lawns & edges</li><li>Hedges & shrubs</li><li>Garden tidy-ups</li></ul>
         </div>
-        <a class="button" href="mailto:4siteonline@gmail.com?subject=Gardening%20enquiry">Send a gardening job</a>
+        <a class="button service-enquiry" href="#job-brief" data-service="Gardening">Send a gardening job</a>
       </article>
 
       <article class="service-card card-shopfitting" id="shopfitting">
@@ -502,7 +808,7 @@
           <p>Retail rollout support, digital pricing screens, gondola preparation, de-merchandising and careful re-merchandising.</p>
           <ul><li>Retail rollouts</li><li>Gondola resets</li><li>Digital pricing</li></ul>
         </div>
-        <a class="button" href="mailto:4siteonline@gmail.com?subject=Shopfitting%20enquiry">Send a shopfitting job</a>
+        <a class="button service-enquiry" href="#job-brief" data-service="Shopfitting">Send a shopfitting job</a>
       </article>
     </section>
 
@@ -519,5 +825,148 @@
     <p>North West England — include your postcode or site location.</p>
     <p>Copyright 2026 Marc Harris</p>
   </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById("job-form");
+      var status = document.getElementById("form-status");
+      var serviceSelect = document.getElementById("service");
+      var serviceLinks = document.querySelectorAll("[data-service]");
+      var taskChecklist = document.getElementById("task-checklist");
+      var checklistHint = document.getElementById("checklist-hint");
+      var taskOptions = {
+        "Electrical": [
+          "Fitting swap",
+          "New circuit",
+          "Fault find",
+          "Security light",
+          "EV charger",
+          "Fuseboard issue",
+          "Step ladders",
+          "Extension ladders",
+          "Electrical test kit"
+        ],
+        "CCTV / security": [
+          "New camera installation",
+          "Camera fault",
+          "Recorder / NVR issue",
+          "Remote viewing / app",
+          "Network / communications",
+          "Mobile CCTV / tower",
+          "Analytics / Jetson",
+          "Step ladders",
+          "Extension ladders"
+        ],
+        "Gardening": [
+          "Lawn cut / edging",
+          "Hedge trimming",
+          "Tree / shrub pruning",
+          "Garden clearance",
+          "Weed control",
+          "Waste removal",
+          "Mower / strimmer",
+          "Hedge cutter",
+          "Ladders"
+        ],
+        "Shopfitting": [
+          "Gondola / shelving",
+          "Lighting / power",
+          "Digital pricing screens",
+          "De-merch / re-merch",
+          "Signage / display",
+          "Fixings / drill kit",
+          "Step ladders",
+          "Materials trolley",
+          "Site paperwork / PPE"
+        ],
+        "Not sure / mixed job": [
+          "Materials / fixings",
+          "Steps",
+          "Ladders",
+          "Electrical test kit",
+          "CCTV / network kit",
+          "Garden machinery",
+          "Waste removal",
+          "Heavy lifting / trolley",
+          "Not sure — advise me"
+        ]
+      };
+
+      function renderTaskChecklist(service) {
+        var options = taskOptions[service] || [];
+        taskChecklist.replaceChildren();
+
+        if (!options.length) {
+          var empty = document.createElement("p");
+          empty.className = "checklist-empty";
+          empty.textContent = "Choose a service in question 1.";
+          taskChecklist.appendChild(empty);
+          checklistHint.textContent = "Choose a service and this checklist will change to match it.";
+          return;
+        }
+
+        checklistHint.textContent = service + " checklist — select every item that applies.";
+        options.forEach(function (item) {
+          var label = document.createElement("label");
+          var input = document.createElement("input");
+          label.className = "check-option";
+          input.type = "checkbox";
+          input.name = "loadClues";
+          input.value = item;
+          label.appendChild(input);
+          label.appendChild(document.createTextNode(item));
+          taskChecklist.appendChild(label);
+        });
+      }
+
+      serviceLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+          serviceSelect.value = link.getAttribute("data-service");
+          renderTaskChecklist(serviceSelect.value);
+        });
+      });
+
+      serviceSelect.addEventListener("change", function () {
+        renderTaskChecklist(serviceSelect.value);
+      });
+
+      renderTaskChecklist(serviceSelect.value);
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        var data = new FormData(form);
+        var loadClues = data.getAll("loadClues");
+        var subject = "New JusWrk " + data.get("service") + " job — " + data.get("location");
+        var lines = [
+          "NEW JUSWRK JOB BRIEF",
+          "",
+          "Customer: " + data.get("customerName"),
+          "Contact: " + data.get("customerContact"),
+          "",
+          "1. Service: " + data.get("service"),
+          "2. Location: " + data.get("location"),
+          "3. Site type: " + data.get("siteType"),
+          "4. Timing: " + data.get("timing"),
+          "5. Access: " + data.get("access"),
+          "6. Work at height: " + data.get("height"),
+          "7. Task / kit clues: " + (loadClues.length ? loadClues.join(", ") : "Customer is not sure"),
+          "",
+          "CUSTOMER REQUEST",
+          data.get("request"),
+          "",
+          "Submitted from https://juswrk.github.io/services/"
+        ];
+
+        status.textContent = "Opening your email app with the completed job brief…";
+        window.location.href =
+          "mailto:4siteonline@gmail.com?subject=" +
+          encodeURIComponent(subject) +
+          "&body=" +
+          encodeURIComponent(lines.join("\n"));
+      });
+    }());
+  </script>
 </body>
 </html>
